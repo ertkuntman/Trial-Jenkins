@@ -1,0 +1,39 @@
+<!-- We wait for all the objects to be loaded in the js controller -->
+<div ng-if="ready" class="container-fluid">   
+
+ 
+<!-- Page title -->       
+    <div class="row no-gutters "> 
+        <div class=" animated fadeInDown ms250" style="height: 40px">
+            <p class="pagetitle"> PILLAR 1 - STANDARD 
+            </p>
+        </div>
+    </div>
+
+<div>This view will be placed under REGIONAL - Pillar 1 menu:
+<img src="img/M_RegionalSupply.PNG" style="width: 40%; border-style:solid; border-color:#688F96; border-width:1px;"></div>
+<br>
+<div>In this view we have the capability to change the rolling months available that we want in both graphs. In order to achieve this we are using the "getContent" and "setContent" method (which is a call to the qlik sense api) and combining it with "ng-click" which is a directive that will run a function defined in the controller. In those functions we should take the v.month variable and change its content between 1, 2, 3 and 4 values that match with Isolated month, Rolling 3 months, Rolling 6 months and Rolling 12 monts respectively. You can also change the Rolling months buttons class depending on whether they are selected or not with the "ng-class" directive.</div>
+<br>
+<div>Above the pivot table, there are available two radio buttons (Per month and Aggregated). With "ng-init", "ng-click" and "ng-if" directives, both tables available in "Regional - Pillar 1 - Standard" view in the app can be switched between them.</div>
+<br>
+<div>In the combo chart, we have the checkboxes that will control the measures that we have in the Adherence parameteres graph. For those we are using in the view "ng-checked" that will control what is checked and what is not, "ng-model" which will link a variable from the controler with the html and "ng-click" that will control which measure is going to be shown in the chart. In the controller, an object with all the possible measures should be done to include them into the chart created with the api visualization. Whenever you check or uncheck a value of the checkbox we are saving that object in the controller of the view that will have the measures that we will be adding into the chart with the "create combochart" method.<br>
+To create the qlik combo chart, the "Dev-tool" extension is quite useful.<br>
+In addition, as this chart is not being taken with the get-object method, to download it, we would need to create a function in the controller to download the object by the id. This id will be the one of the object in the app, and all the measures will be always downloaded.</div>
+<br>
+<div>For those two charts we will use the following expressions to obtain the information with the info buttons:<br>
+"maxstring({<[%HIDE_Report_ID]={11} ,[%HIDE_Graph_ID]={52}>}Text)"<br>
+"maxstring({<[%HIDE_Report_ID]={11} ,[%HIDE_Graph_ID]={54}>}Text)"<br>
+</div>
+<br><br>
+
+	<img src="img/RegionalSupply.PNG" style="width: 100%; border-style:solid; border-color:#688F96; border-width:2px;">
+
+<!-- Empty div to avoid overlaping with the panels -->     
+    <div class="row no-gutters"> 
+        <div class="col-xs-12" style="height: 8px"></div>
+    </div> 
+
+ 
+
+</div> 

@@ -1,0 +1,39 @@
+<!-- We wait for all the objects to be loaded in the js controller -->
+<div ng-if="ready" class="container-fluid">   
+
+ 
+<!-- Page title -->        
+    <div class="row no-gutters "> 
+        <div class=" animated fadeInDown ms250" style="height: 40px">
+            <p class="pagetitle"> PILLAR 2
+            </p>
+        </div>
+    </div> 
+
+<div>This view will be placed under REGIONAL menu:
+<img src="img/M_RegionalPillar2.PNG" style="width: 40%; border-style:solid; border-color:#688F96; border-width:1px;"></div>
+<br>  
+<div> Here we have an html table with the capability to change the field that is being used in the table with 3 radio buttons (see Pillar 1 - Standard first). We are creating the table with the "createCube" method. In this Cube, the Dimesions should be:<br>
+"=If($(v.SelectDim)=1,[COUNTRY],If($(v.SelectDim)=2,[Global Brand],If($(v.SelectDim)=3,[Global Product])))" : dimension showed depending on the v.SelectDim variable.<br>
+"=If($(v.SelectDim)=1,lower([COUNTRY]),If($(v.SelectDim)=2,[%HIDE_BrandPNG]))" : name of the corresponding country flags and brand logos without the .png extension. They change depending on the v.SelectDim variable.<br>
+Measures should be taken from the table in Pillar 2 view in the app.<br>
+</div>
+<br>
+<div>For creating the visualization of the table in the view, a function to change the name of the first column depending on the radio button should be created in the controller.<br>
+In the html table, if the user clicks on some dimension value, this value should be filtered in the dashboard. To do that, another function should be created in the controller.<br>
+Also if the text of the cell exceeds the cell's size there will appear three dots that, when hover over, will detail the full name. In order to do that we are using "Title" which is an html element and an css class.</div>
+<br>
+<div>For this chart we will use the following expression to obtain the information with the info button:<br>
+"maxstring({<[%HIDE_Report_ID]={14} ,[%HIDE_Graph_ID]={73}>}Text)"<br>
+</div>
+<br><br>
+
+	<img src="img/RegionalPillar2.PNG" style="width: 100%; border-style:solid; border-color:#688F96; border-width:2px;">
+
+<!-- Empty div to avoid overlaping with the panels -->    
+    <div class="row no-gutters"> 
+        <div class="col-xs-12" style="height: 8px"></div>
+    </div>
+
+
+</div> 

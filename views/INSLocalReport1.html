@@ -1,0 +1,40 @@
+<!-- We wait for all the objects to be loaded in the js controller -->
+<div ng-if="ready" class="container-fluid">   
+
+ 
+<!-- Page title -->       
+    <div class="row no-gutters "> 
+        <div class=" animated fadeInDown ms250" ng-init="ctrlValue=true" style="height: 40px">
+            <p class="pagetitle"> REPORT 1 
+            </p>
+        </div>
+    </div>
+
+<div>This view will be placed under LOCAL menu:
+<img src="img/M_LocalReport1.PNG" style="width: 40%; border-style:solid; border-color:#688F96; border-width:1px;"></div>
+<br>
+<div>In this view we have a table and a chart, and we have the capability to change the rolling months that we want in both graphs. In this case, the rolling months will be shown in the charts as cumulated measures, but all Month-Years are goint to be available in the charts. In order to achieve this we were using the "getContent" and "setContent" methods and combining it with "ng-click" which is a directive that will run a function defined in the controller. In those functions we should take the v.RollCum.Months variable and change its content between 1, 3, 6 and 12 values that match with Isolated month, Rolling 3 months, Rolling 6 months and Rolling 12 monts respectively.You can also change the Rolling months buttons class depending on whether they are selected or not with the "ng-class" directive.</div>
+<br>
+<div>Above the pivot table, there are available two radio buttons (MoM and YoY). With "ng-init" and "ng-click" directives in the view and a "setContent" method in a function that takes the v.MoM.YoY variable and change its value from 1 (MoM) to 12 (YoY) and the other way around, the Trend values in the charts should change.</div>
+<br>
+<div>For the KPI 1 and KPI 2 we are creating two objects that will bring all the posibles values (Ex-Factory Sales, VPD excl. tolerance, VPD incl. tolerance, EDS, Consumed ceilings, FBP and OpFC), after that we will asign a number (from 1 to 7 and in order) to each of the possible values with a "indexOf", and with a "setContent" we will change v.KPI1 or v.KPI2 to one of the numbers previously assigned. Those KPIs will change the measures in the charts. In order to display the KPIs in the view in dropdowns and for changing from one KPI to another, we are going to use the "ng-model", "ng-options" and "ng-change" directives.</div>
+<br>
+<div>Finally, at top left corner of the combo chart, we have two buttons (Value and Trend). The functionality is very similar to the radio buttons. When Value is selected, the combo chart will be displayed and when Trend is selected the line chart will be displayed.</div>
+<br>
+<div>For those two charts we will use the following expressions to obtain the information with the info buttons:<br>
+"maxstring({<[%HIDE_Report_ID]={17} ,[%HIDE_Graph_ID]={78}>}Text)"<br>
+"maxstring({<[%HIDE_Report_ID]={17} ,[%HIDE_Graph_ID]={79}>}Text)"<br>
+</div>
+<br><br>
+
+	<img src="img/LocalReport1.PNG" style="width: 100%; border-style:solid; border-color:#688F96; border-width:2px;">
+
+
+
+<!-- Empty div to avoid overlaping with the panels -->     
+    <div class="row no-gutters"> 
+        <div class="col-xs-12" style="height: 8px"></div>
+    </div> 
+
+
+</div> 

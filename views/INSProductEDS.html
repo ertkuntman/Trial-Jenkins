@@ -1,0 +1,37 @@
+<!-- We wait for all the objects to be loaded in the js controller -->
+<div ng-if="ready" class="container-fluid">   
+
+ 
+<!-- Page title -->         
+    <div class="row no-gutters "> 
+        <div class=" animated fadeInDown ms250" ng-init="ctrlValue=3" style="height: 40px">
+            <p class="pagetitle"> PRODUCT EDS
+            </p>
+        </div>
+    </div>
+
+
+<div>Whenever you open the mashup it will be filtered with he latest [Fiscal Month-Year] available and with [Material Taxonomy]=Relevant. In order to do that we have to look at the Triggers.js that is inside "services". The structure of the trigger is arleady done. A trigger is a function that will be called when the application is opened and is useful to make filters by default. Here we create a function that is going to look at the latest fiscal month with the "createGenericObject" and "selectMatch" methods. For filtering [Material Taxonomy], we only need to use "selectMatch" method.</div>
+<br>
+<div>This view will be placed under PRODUCT menu:
+<img src="img/M_ProductEDS.PNG" style="width: 40%; border-style:solid; border-color:#688F96; border-width:1px;"></div>
+<br>
+<div>Also, in ths view we have the capability to navigate to Regional - Pillar 2 view when clicking "Total Ordered Quantity" or "#Orders" this is done witht he combination of the "goTo" function and an "ng-click" directive.</div>
+<br>
+<div>In the two below charts, we have three different functionalities (Download, Info button and Expand). Download and Expand functionalities are included in SubMenuCrtl.js and the Info button functionality has to be inluded in the controller of each view into a generic object (createGenericObject method). For those two charts we will use the following expressions to obtain the information of them:<br>
+"maxstring({<[%HIDE_Report_ID]={10} ,[%HIDE_Graph_ID]={45}>}Text)"<br>
+"maxstring({<[%HIDE_Report_ID]={10} ,[%HIDE_Graph_ID]={46}>}Text)"<br>
+</div>
+<br><br>
+
+	<img src="img/ProductEDS.PNG" style="width: 100%; border-style:solid; border-color:#688F96; border-width:2px;">
+
+
+
+<!-- Empty div to avoid overlaping with the panels -->      
+    <div class="row no-gutters"> 
+        <div class="col-xs-12" style="height: 8px"></div>
+    </div>
+
+
+</div> 
